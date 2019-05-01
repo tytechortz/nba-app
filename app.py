@@ -1,12 +1,9 @@
 import json
-import urllib
+import urllib.request
 
+with urllib.request.urlopen("http://data.nba.net/data/10s/prod/v1/2018/teams.json") as url:
+    data = json.loads(url.read().decode())
+    print(json.dumps(data, indent=4))
 
-url = "http://data.nba.net/data/10s/prod/v1/2018/teams.json"
-response = urllib.urlopen(url)
-data = json.loads(response.read())
-
-
-print(json.dumps(data, indent=4))
    
 
